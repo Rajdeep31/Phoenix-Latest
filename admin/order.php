@@ -1,34 +1,18 @@
 <?php
-require('top.php');
+    require('top.inc.php');
+
 ?>
-<!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area" style="background: #f7f7f7 no-repeat scroll center center / cover ;">
-    <div class="ht__bradcaump__wrap">
-        <div class="container">
+<div class="content pb-0">
+        <div class="orders">
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="bradcaump__inner">
-                        <nav class="bradcaump-inner">
-                            <a class="breadcrumb-item" href="index.php">Home</a>
-                            <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                            <span class="breadcrumb-item active">Orders</span>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Bradcaump area -->
-<!-- wishlist-area start -->
-<div class="wishlist-area ptb--100 bg__white">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="wishlist-content">
-                    <form action="#">
-                        <div class="wishlist-table table-responsive">
-                            <table>
+                <dic class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="box-title">Order</h4>
+                        </div>
+                        <div class="card-body--">
+                            <div class="table-stats order-table ov-h">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th class="product-thumbnail">Order ID</th>
@@ -40,9 +24,8 @@ require('top.php');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php  
-                                    $uid=$_SESSION['USER_ID'];     
-                                    $res = mysqli_query($con,"select order_.*,order_status.name as order_status    from order_,order_status where order_.customer_id='$uid' and order_status.id=order_.order_status");     
+                                    <?php      
+                                    $res = mysqli_query($con,"select order_.*,order_status.name as order_status from order_,order_status where order_status.id=order_.order_status");     
                                     while($row = mysqli_fetch_assoc($res)){
                                     ?>
                                         <tr>
@@ -57,19 +40,21 @@ require('top.php');
                                             <td class="product-name"><?php echo $row['payment_status']?></td>
                                             <td class="product-name"><?php echo $row['order_status']?></td>
                                         </tr>
-                                    <?php }
+                                    <?php 
+                                    }
+
                                     ?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </dic>
             </div>
         </div>
-    </div>
+
 </div>
-<!-- wishlist-area end -->
 
 <?php
-require('footer.php');
+    require('footer.inc.php');
 ?>

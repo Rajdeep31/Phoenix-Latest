@@ -1,5 +1,12 @@
 <?php
     require('top.php');
+	if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN']=='yes'){
+		?>
+		<script>
+			window.location.href='order.php';
+		</script>
+		<?php
+	}
 ?>
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area" style="background: #f7f7f7 no-repeat scroll center center / cover ;">

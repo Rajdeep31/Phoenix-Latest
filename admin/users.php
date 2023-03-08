@@ -1,13 +1,6 @@
 <?php
     require('top.inc.php');
 
-    if(isset($_GET['type']) && $_GET['type']!=''){
-        if($type=='delete'){
-            $id=get_safe_value($con,$GET['id']);
-            $delete="delete from customer where customer_id='$id'";
-        }
-    }
-
     $sql="select * from customer order by customer_id desc";
     $res=mysqli_query($con,$sql);
 ?>
@@ -17,7 +10,7 @@
                 <dic class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="box-title">Customers</h4>
+                            <h4 class="box-title">Users</h4>
                         </div>
                         <div class="card-body--">
                             <div class="table-stats order-table ov-h">

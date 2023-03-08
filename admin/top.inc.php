@@ -39,7 +39,7 @@
                      <a href="product.php" >Product</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="#" >Order</a>
+                     <a href="order.php" >Order</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
                      <a href="users.php" >Users</a>

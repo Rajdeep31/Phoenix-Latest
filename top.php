@@ -9,6 +9,7 @@ while ($row = mysqli_fetch_assoc($cat_res)) {
 }
 $obj = new add_to_cart();
 $totalProduct = $obj->totalProduct();
+
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">

@@ -36,6 +36,9 @@
                      <a href="categories.php" >Categories</a>
                   </li>
                   <li class="menu-item-has-children dropdown">
+                     <a href="sub_categories.php" >Sub Categories</a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
                      <a href="product.php" >Product</a>
                   </li>
 				  <li class="menu-item-has-children dropdown">

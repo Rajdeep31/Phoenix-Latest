@@ -37,7 +37,7 @@
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">our address</h2>
-                                <p>666 5th Ave New York, NY, United </p>
+                                <p> </p>
                             </div>
                         </div>
                         <div class="address">
@@ -45,8 +45,8 @@
                                 <i class="icon-envelope icons"></i>
                             </div>
                             <div class="address__details">
-                                <h2 class="ct__title">openning hour</h2>
-                                <p>666 5th Ave New York, NY, United </p>
+                                <h2 class="ct__title"></h2>
+                                <p></p>
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">Phone Number</h2>
-                                <p>123-6586-587456</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>      

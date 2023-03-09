@@ -10,6 +10,8 @@ $img = '';
 $short_desc = '';
 $description = '';
 $msg = '';
+$best_seller='';
+
 $img_required = 'required';
 if (isset($_GET['id']) && $_GET['id'] != '') {
     $img_required = '';
@@ -27,6 +29,7 @@ if (isset($_GET['id']) && $_GET['id'] != '') {
         $img = $row['img'];
         $short_desc = $row['short_desc'];
         $description = $row['description'];
+        $best_seller=$row['best_seller'];
     } else {
         header('location:product.php');
         die();
@@ -43,6 +46,7 @@ if (isset($_POST['submit'])) {
     // $img = get_safe_value($con, $_POST['img']);
     $short_desc = get_safe_value($con, $_POST['short_desc']);
     $description = get_safe_value($con, $_POST['description']);
+    $best_seller = get_safe_value($con, $_POST['best_seller']);
     $res = mysqli_query($con, "select * from product where name='$name'");
     $check = mysqli_num_rows($res);
     if ($check > 0) {
@@ -62,16 +66,16 @@ if (isset($_POST['submit'])) {
             if ($_FILES['image']['name'] != '') {
                 $img = rand(1111111111, 9999999999) . '_' . $_FILES['image']['name'];
                 move_uploaded_file($_FILES['image']['tmp_name'], '../media/product/' . $img);
-                $update_sql = "update product set category_id='$category_id',supplier_id='$supplier_id',name='$name',img='$img',mrp='$mrp',price='$price',quantity='$quantity',img='$img',short_desc='$short_desc',description='$description' where product_id='$id'";
+                $update_sql = "update product set category_id='$category_id',supplier_id='$supplier_id',name='$name',img='$img',mrp='$mrp',price='$price',quantity='$quantity',img='$img',short_desc='$short_desc',description='$description',best_seller='$best_seller' where product_id='$id'";
             } else {
-                $update_sql = "update product set category_id='$category_id',supplier_id='$supplier_id',name='$name',mrp='$mrp',price='$price',quantity='$quantity',short_desc='$short_desc',description='$description' where product_id='$id'";
+                $update_sql = "update product set category_id='$category_id',supplier_id='$supplier_id',name='$name',mrp='$mrp',price='$price',quantity='$quantity',short_desc='$short_desc',description='$description',best_seller='$best_seller' where product_id='$id'";
             }
             mysqli_query($con, $update_sql);
         } else {
             $img = rand(1111111111, 9999999999) . '_' . $_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'], '../media/product/' . $img);
-            mysqli_query($con, "INSERT INTO product(category_id,supplier_id,name,mrp,price,quantity,img,short_desc,description,status) 
-            VALUES('$category_id','$supplier_id','$name','$mrp','$price','$quantity','$img','$short_desc','$description','1')");
+            mysqli_query($con, "INSERT INTO product(category_id,supplier_id,name,mrp,price,quantity,img,short_desc,description,status,best_seller) 
+            VALUES('$category_id','$supplier_id','$name','$mrp','$price','$quantity','$img','$short_desc','$description','1','$best_seller')");
         }
         header('location:product.php');
         die();
@@ -127,6 +131,27 @@ if (isset($_POST['submit'])) {
                             <div class="form-group">
                                 <label for="categories" class=" form-control-label">Product Name</label>
                                 <input pattern="[A-Za-z]+*" title="Please Enter Only Alphabets Between A to Z" type="text" name="name" placeholder="Enter product name" class="form-control" required value="<?php echo $name ?>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="categories" class=" form-control-label">Best Seller</label>
+                                <select class="form-control" name="best_seller" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                        if($best_seller==1){
+                                            echo '<option value="1" selected>Yes</option>
+                                            <option value="0">No</option>'; 
+                                        }elseif($best_seller==0){
+                                            echo '<option value="1">Yes</option>
+                                            <option value="0" selected>No</option>'; 
+                                        }else{
+                                            echo '<option value="1">Yes</option>
+                                            <option value="0">No</option>'; 
+                                        }
+                                    ?>
+                                    
+                                    
+                                </select>
                             </div>
 
                             <div class="form-group">

@@ -17,13 +17,16 @@
         }
     }
 
-    function get_product($con,$limit='',$cat_id='',$product_id='',$sort_order=''){
+    function get_product($con,$limit='',$cat_id='',$product_id='',$sort_order='',$is_best_seller=''){
         $sql="select product.*,category.category_name from product,category where product.status=1";
         if($cat_id!=''){
             $sql.=" and product.category_id=$cat_id";
         }
         if($product_id!=''){
             $sql.=" and product.product_id=$product_id";
+        }
+        if($is_best_seller!=''){
+            $sql.=" and product.best_seller=1";
         }
         $sql.=" and product.category_id=category.category_id";
         if($sort_order!=''){

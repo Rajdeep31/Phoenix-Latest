@@ -536,3 +536,10 @@ function manage_cart(pid,type){
         }
     })
 }
+
+
+
+function sort_product_drop(cat_id){
+    var sort_product_id=jQuery('#sort_product_id').val();
+    window.location.href="http://127.0.0.1/Phoenix/categories.php?id="+cat_id+"&sort="+sort_product_id;
+}

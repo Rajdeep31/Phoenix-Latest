@@ -70,7 +70,7 @@ $totalProduct = $obj->totalProduct();
                   <a href="index.php"><img src="images/logo/logo.svg" alt="logo images" class="logo" /></a>
                 </div>
               </div>
-              <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
+              <div class="col-md-7 col-lg-7 col-sm-5 col-xs-3">
                 <nav class="main__menu__nav hidden-xs hidden-sm">
                   <ul class="main__menu">
                     <li class="drop"><a href="index.php">Home</a></li>
@@ -101,7 +101,7 @@ $totalProduct = $obj->totalProduct();
                   </nav>
                 </div>
               </div>
-              <div class="col-md-3 col-lg-2 col-sm-4 col-xs-4">
+              <div class="col-md-3 col-lg-3 col-sm-4 col-xs-4">
                 <div class="header__right">
                   <div class="header__search search search__open">
                     <!-- <a href="#"><i class="icon-magnifier icons"></i></a> -->

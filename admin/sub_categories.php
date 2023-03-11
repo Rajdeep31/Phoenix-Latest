@@ -10,17 +10,17 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
         } else {
             $status = '0';
         }
-        $update_status = "update category set status='$status' where category_id='$id'";
+        $update_status = "update sub_category set status='$status' where sub_category_id='$id'";
         mysqli_query($con, $update_status);
     }
     if ($type == 'delete') {
         $id = get_safe_value($con, $_GET['id']);
-        $delete = "delete from category where category_id='$id'";
+        $delete = "delete from sub_category where sub_category_id='$id'";
         mysqli_query($con, $delete);
     }
 }
 
-$sql = "select * from sub_categories order by sub_categories asc";
+$sql = "select sub_category.*,category.category_name from sub_category,category where category.category_id=sub_category.category_id order by sub_category.sub_category asc";
 $res = mysqli_query($con, $sql);
 ?>
 <div class="content pb-0">
@@ -50,19 +50,19 @@ $res = mysqli_query($con, $sql);
                                     while ($row = mysqli_fetch_assoc($res)) { ?>
                                         <tr>
                                             <td class="serial"><?php echo $i++ ?></td>
-                                            <td><?php echo $row['sub_categories_id'] ?></td>
-                                            <td><?php echo $row['categories_id'] ?></td>
-                                            <td><?php echo $row['sub_categories'] ?></td>
+                                            <td><?php echo $row['sub_category_id'] ?></td>
+                                            <td><?php echo $row['category_name'] ?></td>
+                                            <td><?php echo $row['sub_category'] ?></td>
                                             <td>
                                                 <?php
                                                 if ($row['status'] == 1) {
-                                                    echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=" . $row['categories_id'] . "'>Active</a></span>&nbsp";
+                                                    echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=" . $row['sub_category_id'] . "'>Active</a></span>&nbsp";
                                                 } else {
-                                                    echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=" . $row['categories_id'] . "'>Deactive</a></span>&nbsp";
+                                                    echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=" . $row['sub_category_id'] . "'>Deactive</a></span>&nbsp";
                                                 }
-                                                echo "<span class='badge badge-edit'><a href='manage_sub_categories.php?&id=" . $row['categories_id'] . "'>Edit</a></span>&nbsp;";
+                                                echo "<span class='badge badge-edit'><a href='manage_sub_categories.php?&id=" . $row['category_id'] . "'>Edit</a></span>&nbsp;";
 
-                                                echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['categories_id'] . "'>Delete</a></span>";
+                                                echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['sub_category_id'] . "'>Delete</a></span>";
                                                 // echo "&nbsp<a href='?type=edit&id=".$row['category_id']."'>Edit</a>";
                                                 ?>
                                             </td>

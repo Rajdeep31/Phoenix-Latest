@@ -20,7 +20,7 @@ if (isset($_GET['type']) && $_GET['type'] != '') {
     }
 }
 
-$sql = "select * from category order by category_name";
+$sql = "select * from category order by category_id";
 $res = mysqli_query($con, $sql);
 ?>
 <div class="content pb-0">

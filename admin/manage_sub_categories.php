@@ -7,16 +7,16 @@
 <?php
 require('top.inc.php');
 $categories='';
-$sub_categories='';
+$sub_category='';
 $msg='';
 if(isset($_GET['id']) && $_GET['id']!=''){
     $id=get_safe_value($con,$_GET['id']);
-    $res=mysqli_query($con,"select * from sub_categories where categories_id='$id'");
+    $res=mysqli_query($con,"select * from sub_category where category_id='$id'");
     $check=mysqli_num_rows($res);
     if($check>0){
     $row=mysqli_fetch_assoc($res);
-    $sub_categories=$row['sub_categories'];
-    $categories=$row['categories_id'];
+    $sub_category=$row['sub_category'];
+    $categories=$row['category_id'];
     }else{
         header('location:sub_categories.php');
     }
@@ -25,14 +25,14 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 
 
 if(isset($_POST['submit'])){
-    $categories=get_safe_value($con,$_POST['categories_id']);
-    $sub_categories=get_safe_value($con,$_POST['sub_categories']);
-    $res=mysqli_query($con,"select * from sub_categories where categories_id='$categories' and sub_categories_id='$sub_categories'");
+    $categories=get_safe_value($con,$_POST['category_id']);
+    $sub_categories=get_safe_value($con,$_POST['sub_category']);
+    $res=mysqli_query($con,"select * from sub_category where category_id='$categories' and sub_category='$sub_categories'");
     $check=mysqli_num_rows($res);
     if($check>0){
         if(isset($_GET['id']) && $_GET['id']!=''){
             $getData=mysqli_fetch_assoc($res);
-            if($id==$getData['sub_categories_id']){
+            if($id==$getData['sub_category_id']){
 
             }else{
                 $msg="Sub Category already exist";
@@ -43,9 +43,9 @@ if(isset($_POST['submit'])){
     }
     if($msg==''){
         if(isset($_GET['id']) && $_GET['id']!=''){
-            mysqli_query($con,"update sub_categories set categories_id='$categories',sub_categories='$sub_categories' where categories_id='$id'");
+            mysqli_query($con,"update sub_category set category_id='$categories',sub_category='$sub_categories' where category_id='$id'");
         }else{
-            mysqli_query($con,"insert into sub_categories(categories_id,sub_categories,status) values('$categories','$sub_categories','1')");
+            mysqli_query($con,"insert into sub_category(category_id,sub_category,status) values('$categories','$sub_categories','1')");
         }
         header('location:sub_categories.php');
         die();
@@ -65,15 +65,15 @@ if(isset($_POST['submit'])){
                     <div class="card-body card-block">
                         <div class="form-group">
                             <label for="categories" class=" form-control-label">Category</label>
-                            <select name="categories_id" class="form-control" required>
+                            <select name="category_id" class="form-control" required>
                                 <option value="">Select Categories</option>
                                 <?php
                                     $res=mysqli_query($con,"select * from category where status='1'");
                                     while($row=mysqli_fetch_assoc($res)){
-                                        if($row['sub_categories']==$categories){
-                                            echo "<option value=".$row['categories_id']." selected>".$row['category_name']."</option>";
+                                        if($row['category_id']==$categories){
+                                            echo "<option value=".$row['category_id']." selected>".$row['category_name']."</option>";
                                         }else{
-                                            echo "<option value=".$row['categories_id'].">".$row['category_name']."</option>";
+                                            echo "<option value=".$row['category_id'].">".$row['category_name']."</option>";
                                         }
                                     }
                                 ?>
@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="form-group">
                                 <label for="categories" class=" form-control-label">Sub Categories</label>
-                                <input pattern="[A-Za-z]+*" title="Please Enter Only Alphabets Between A to Z" type="text" name="sub_categories" placeholder="Enter Sub Categories" class="form-control" required value="<?php echo $sub_categories ?>">
+                                <input pattern="[A-Za-z]+*" title="Please Enter Only Alphabets Between A to Z" type="text" name="sub_category" placeholder="Enter Sub Categories" class="form-control" required value="<?php echo $sub_category ?>">
                          </div>
                         <button id="payment-button" type="submit" name="submit" class="btn btn-lg btn-info btn-block">
                             <span id="payment-button-amount" name="submit">Submit</span>

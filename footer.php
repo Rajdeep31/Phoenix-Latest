@@ -15,13 +15,13 @@
                     <div class="ft__social__link">
                       <ul class="social__link">
                         <li>
-                          <a href="#"
+                          <a href="https://twitter.com/PhoenixComp07"
                             ><i class="icon-social-twitter icons"></i
                           ></a>
                         </li>
 
                         <li>
-                          <a href="#"
+                          <a href="https://www.instagram.com/px_computers/"
                             ><i class="icon-social-instagram icons"></i
                           ></a>
                         </li>
@@ -82,7 +82,7 @@
               </div>
               <!-- End Single Footer Widget -->
               <!-- Start Single Footer Widget -->
-              <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
+              <!-- <div class="col-md-2 col-sm-6 col-xs-12 xmt-40 smt-40">
                 <div class="footer">
                   <h2 class="title__line--2">Our service</h2>
                   <div class="ft__inner">
@@ -95,7 +95,7 @@
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!-- End Single Footer Widget -->
               <!-- Start Single Footer Widget -->
               <div class="col-md-3 col-sm-6 col-xs-12 xmt-40 smt-40">
@@ -123,9 +123,9 @@
               <div class="col-xs-12">
                 <div class="copyright__inner">
                   <p>
-                    Copyright©
-                    <a href="https://freethemescloud.com/">Free themes Cloud</a>
-                    2018. All right reserved.
+                    CopyrightÂ©
+                    <a href="index.php">Phoenix Computers</a>
+                    2022. All right reserved.
                   </p>
                   <a href="#"
                     ><img

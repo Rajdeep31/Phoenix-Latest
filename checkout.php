@@ -50,6 +50,8 @@ if (isset($_POST['submit'])) {
     unset($_SESSION['cart']);
 
 
+
+    
     if ($payment_type == 'PayU') {
 
         $MERCHANT_KEY = "gtKFFx";

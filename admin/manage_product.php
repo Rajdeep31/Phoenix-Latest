@@ -233,7 +233,7 @@ require('footer.inc.php');
 ?>
 <script>
     <?php
-    if(isset($_GET['id'])){
+    if(isset($_GET['category_id'])){
         ?>
             get_sub_cat('<?php echo $sub_category_id?>');
             <?php } ?>

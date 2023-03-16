@@ -4,7 +4,7 @@ require('functions.inc.php');
 if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 
 }else{
-    header('location:login.php');
+    header('location:index.php');
     die();
 }
 $category_id=get_safe_value($con,$_POST['category_id']);
@@ -13,10 +13,10 @@ $res=mysqli_query($con,"select * from sub_category where category_id='$category_
 if(mysqli_num_rows($res)>0){
     $html='';
     while($row=mysqli_fetch_assoc($res)){
-        if($sub_cat_id==$row['category_id']){
-            $html.="<option value=".$row['category_id']." selected>".$row['sub_category']."</option>";
+        if($sub_cat_id==$row['sub_category_id']){
+            $html.="<option value=".$row['sub_category_id']." selected>".$row['sub_category']."</option>";
         }else{
-            $html.="<option value=".$row['category_id'].">".$row['sub_category']."</option>";
+            $html.="<option value=".$row['sub_category_id'].">".$row['sub_category']."</option>";
         }
 
     }

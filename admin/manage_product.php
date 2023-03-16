@@ -1,6 +1,7 @@
 <?php
 require('top.inc.php');
 $category_id = '';
+$sub_category_id='';
 $supplier_id = '';
 $name = '';
 $mrp = '';
@@ -11,7 +12,6 @@ $short_desc = '';
 $description = '';
 $msg = '';
 $best_seller='';
-$sub_category_id='';
 
 
 $img_required = 'required';
@@ -231,9 +231,10 @@ if (isset($_POST['submit'])) {
 <?php
 require('footer.inc.php');
 ?>
+
 <script>
     <?php
-    if(isset($_GET['category_id'])){
+    if(isset($_GET['id'])){
         ?>
             get_sub_cat('<?php echo $sub_category_id?>');
             <?php } ?>

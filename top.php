@@ -74,11 +74,27 @@ $totalProduct = $obj->totalProduct();
               <div class="col-md-7 col-lg-7 col-sm-5 col-xs-3">
                 <nav class="main__menu__nav hidden-xs hidden-sm">
                   <ul class="main__menu">
-                    <li class="drop"><a href="index.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <?php
                     foreach ($cat_arr as $list) {
                     ?>
-                      <li><a href="categories.php?id=<?php echo $list['category_id'] ?>"><?php echo $list['category_name'] ?></a></li>
+                      <li class="drop"><a href="categories.php?id=<?php echo $list['category_id'] ?>"><?php echo $list['category_name'] ?></a>
+                      <?php
+                      $cat_id=$list['category_id'];
+                          $sub_cat_res=mysqli_query($con,"select * from sub_category where status='1' and category_id='$cat_id'");
+                          if(mysqli_num_rows($sub_cat_res)>0){
+                      ?>
+                          <ul class="dropdown">                            
+                            <?php
+                                while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
+                                  echo '<li><a href="categories.php?id='.$list['category_id'].'&sub_category='.$sub_cat_rows['sub_category_id'].'">'.$sub_cat_rows['sub_category'].'</a></li>';
+
+                                }
+                            ?>
+                          </ul>
+                          <?php }
+                          ?>
+                      </li>
                     <?php
                     }
                     ?>
@@ -93,7 +109,11 @@ $totalProduct = $obj->totalProduct();
                       <?php
                       foreach ($cat_arr as $list) {
                       ?>
-                        <li><a href="categories.php?id=<?php echo $list['category_id'] ?>"><?php echo $list['category_name'] ?></a></li>
+                        <li class="drop"><a href="categories.php?id=<?php echo $list['category_id'] ?>"><?php echo $list['category_name'] ?></a>
+                        <ul class="dropdown">
+                            <li><a>Processor</a></li>
+                          </ul>
+                      </li>
                       <?php
                       }
                       ?>
@@ -110,7 +130,7 @@ $totalProduct = $obj->totalProduct();
                   <div class="header__account">
                     <?php if (isset($_SESSION['USER_LOGIN'])) {
                       echo '<a href="logout.php"><i class="icon-user icons">Logout</i></a>';
-                      echo '<a href="order.php">Order</a>';                    
+                      echo '<a href="order.php">Order</a>';
                     } else {
                       echo '<a href="login.php"><i class="icon-user icons">Login</i></a>';
                     }

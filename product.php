@@ -84,7 +84,7 @@ if($product_id>0){
                             <div class="sin__desc align--left">
                                 <p><span>Categories:</span></p>
                                 <ul class="pro__cat__list">
-                                    <li><a href="#"><?php echo $get_product['0']['category_name']?></a></li>
+                                    <li><a><?php echo $get_product['0']['category_name']?></a></li>
                                 </ul>
                             </div>
                         </div>

@@ -6,6 +6,10 @@
     $new_selected="";
     $old_selected="";
     $sort_order='';
+    $sub_category='';
+    if(isset($_GET['sub_category'])){
+        $sub_category=mysqli_real_escape_string($con,$_GET['sub_category']);
+    }
 
     if(isset($_GET['sort'])){
         $sort=mysqli_real_escape_string($con,$_GET['sort']);
@@ -22,13 +26,14 @@
             $sort_order=" order by product.product_id asc";
             $old_selected="selected";
         }
+
     }
 
 
 
 
     if($cat_id>0){
-        $get_product = get_product($con,'',$cat_id,'',$sort_order);
+        $get_product = get_product($con,'',$cat_id,'',$sort_order,'',$sub_category);
     }else{
        ?>
         <script>

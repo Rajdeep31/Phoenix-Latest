@@ -5,6 +5,13 @@ if(isset($_POST['update_order_status'])){
     $update_order_status=$_POST['update_order_status'];
     mysqli_query($con,"update `order_` set order_status='$update_order_status' where order_id='$order_id'");
 }
+
+
+if(isset($_POST['delivery_boy'])){
+    $delivery_boy=$_POST['delivery_boy'];
+    mysqli_query($con,"update `order_` set delivery_boy_id='$delivery_boy' where order_id='$order_id'");
+}
+
 ?>
 <div class="content pb-0">
     <div class="orders">
@@ -54,7 +61,7 @@ if(isset($_POST['update_order_status'])){
                         <div id="address_details">
                             <!-- <strong>Address:</strong> -->
                             <!-- <?php echo $address ?>, <?php echo $city ?>, <?php echo $pincode ?></br></br> -->
-                            <strong>Order Status:</strong>
+                           <strong rong>Order Status:</strong>
                             <?php
                             $order_status_arr = mysqli_fetch_assoc(mysqli_query($con, "select order_status.name from order_status,`order_` where `order_`.order_id='$order_id' and `order_`.order_status=order_status.id"));
                             echo $order_status_arr['name'];
@@ -73,15 +80,60 @@ if(isset($_POST['update_order_status'])){
                                                 echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
                                             }
                                         }
+
+                                       
+                                        ?>
+                                    </select>
+
+                                        <br>
+                                    <strong rong>Assign Delivery Boy:</strong>
+                                    <?php
+                                    $delivery_boy_arr = mysqli_fetch_assoc(mysqli_query($con, "select delivery_boy.delivery_boy_name from delivery_boy,`order_` where `order_`.order_id='$order_id' and `order_`.delivery_boy_id=delivery_boy.db_id"));
+                                    echo $delivery_boy_arr['delivery_boy_name'];
+                            ?>
+                                    <select class="form-control" name="delivery_boy">
+                                        <option>Delivery Boy</option>
+                                        <?php
+                                        $res = mysqli_query($con, "select * from delivery_boy where status=1 order by delivery_boy_name");
+                                        while ($row = mysqli_fetch_assoc($res)) {
+                                            if ($row['id'] == $order_id) {
+                                                echo "<option selected value=" . $row['db_id'] . ">" . $row['delivery_boy_name'] . "</option>";
+                                            } else {
+                                                echo "<option value=" . $row['db_id'] . ">" . $row['delivery_boy_name'] . "</option>";
+                                            }
+                                        }
+
+                                       
                                         ?>
                                     </select>
                                     <input type="submit" class="form-control">
                                 </form>
-                            
-                            </div>
-                        </div>
 
+
+                                <br>
+                                </form>
+                                <br>
+                            </div>
+
+<!--                                 
+                            <strong>Assign Delivery Boy:</strong>
+                                <select class="form-control" name="delivery_boy" id="delivery_boy" onchange="updateDeliveryBoy()">
+                                <option val=''>Delivery Boy</option>
+                                <?php
+                                 $orderDeliveryBoyRes=mysqli_query($con,"select * from delivery_boy where status=1 order by name");
+                                while($orderDeliveryBoyRow=mysqli_fetch_assoc($orderDeliveryBoyRes)){
+                                    echo "<option value=".$orderDeliveryBoyRow['db_id'].">".$orderDeliveryBoyRow['name']."</option>";
+                                }
+                                ?>
+                                </select> -->
+                            
+                                
+                            
                         </div>
+                        
+                        
+                        
+                    </div>
                     </div>
                 </div>
             </dic>
@@ -93,3 +145,4 @@ if(isset($_POST['update_order_status'])){
 <?php
 require('footer.inc.php');
 ?>
+

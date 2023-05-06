@@ -1,10 +1,10 @@
 <?php
-    require('../connection.inc.php');
-    require('../functions.inc.php'); 
-    if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
+    require('connection.inc.php');
+    require('functions.inc.php'); 
+    if(isset($_SESSION['DELIVERY_LOGIN']) && $_SESSION['DELIVERY_LOGIN']!=''){
 
     }else{
-        header('location:index.php');
+        header('location:login.php');
         die();
     }
 ?>
@@ -14,7 +14,7 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Admin Panel</title>
+      <title>Delivery Boy Panel</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="../admin/assets/css/normalize.css">
       <link rel="stylesheet" href="../admin/assets/css/bootstrap.min.css">
@@ -32,24 +32,16 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                <ul class="nav navbar-nav">
                   <li class="menu-title">Menu</li>
+                  
+                  
+				      <li class="menu-item-has-children dropdown">
+                     <a href="index.php" >Order</a>
+                  </li>
+
                   <li class="menu-item-has-children dropdown">
-                     <a href="categories.php" >Categories</a>
+                     <a href="delivery_boy.php" >Edit Profile</a>
                   </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="sub_categories.php" >Sub Categories</a>
-                  </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="product.php" >Product</a>
-                  </li>
-				  <li class="menu-item-has-children dropdown">
-                     <a href="order.php" >Order</a>
-                  </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="users.php" >Users</a>
-                  </li>
-                  <li class="menu-item-has-children dropdown">
-                     <a href="delivery_boy.php" >Delivery Boy</a>
-                  </li>
+                 
                </ul>
             </div>
          </nav>
@@ -58,7 +50,7 @@
          <header id="header" class="header">
             <div class="top-left">
                <div class="navbar-header">
-                  <a class="navbar-brand" href="categories.php"><img src="../admin/images/logo.svg" alt="Logo"></a>
+                  <a class="navbar-brand" href="index.php"><img src="../admin/images/logo.svg" alt="Logo"></a>
                   <a class="navbar-brand hidden" href="index.html"><img src="images/logo2.png" alt="Logo"></a>
                   <!-- <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
                </div>

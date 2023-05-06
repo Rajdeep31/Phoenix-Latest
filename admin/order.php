@@ -25,7 +25,7 @@
                                 </thead>
                                 <tbody>
                                     <?php      
-                                    $res = mysqli_query($con,"select order_.*,order_status.name as order_status from order_,order_status where order_status.id=order_.order_status");     
+                                     $res =mysqli_query($con,"select order_.*,order_status.name as order_status from order_,order_status where order_status.id=order_.order_status");     
                                     while($row = mysqli_fetch_assoc($res)){
                                     ?>
                                         <tr>

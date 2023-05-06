@@ -1,11 +1,8 @@
 <?php
-require('connection.inc.php');
-require('functions.inc.php');
-        unset($_SESSION['DELIVERY_USER_LOGIN']);
-        // unset($_SESSION['USER_ID']);
-        // unset($_SESSION['USER_NAME']);
-        echo '<script>alert("Logged Out");
-        window.location.href="index.php";
-        </script>';
-        die();
+    session_start();
+    unset($_SESSION['DELIVERY_LOGIN']);
+    unset($_SESSION['DELIVERY_EMAIL']);
+    unset($_SESSION['DELIVERY_ID']);
+    header('location:login.php');
+    die();
 ?>

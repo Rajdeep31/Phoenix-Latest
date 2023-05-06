@@ -82,11 +82,12 @@ $res = mysqli_query($con, $sql);
                                                     </span>&nbsp";
                                                 }
                                                 echo "<span class='badge badge-edit'><a href='manage_product.php?&id=" . $row['product_id'] . "'>Edit</a></span>&nbsp;";
-                                                echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['product_id'] . "'>Delete</a></span>";
+                                                // echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['product_id'] . "'>Delete</a></span>";
 
 
                                                 //echo "&nbsp<a href='?type=edit&id=".$row['category_id']."'>Edit</a>";
                                                 ?>
+                                                <a href="?id=<?php echo $row['product_id']?>&type=delete" onclick="return confirm('Are You Sure!');"><label class="badge badge-delete">Delete</label></a>
                                             </td>
                                         </tr>
                                     <?php } ?>

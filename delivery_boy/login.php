@@ -1,6 +1,6 @@
 <?php
-    require('../connection.inc.php');
-    require('../functions.inc.php');
+    require('connection.inc.php');
+    require('functions.inc.php');
     $msg='';
     if(isset($_POST['submit'])){
         $email=get_safe_value($con,$_POST['email']);
@@ -9,10 +9,10 @@
         $res=mysqli_query($con,$sql);
         $count=mysqli_num_rows($res);
         if($count>0){
-            $_SESSION['DELIVERY_USER_LOGIN']='yes';
+            $_SESSION['DELIVERY_LOGIN']='yes';
             $_SESSION['DELIVERY_EMAIL']=$email;
-            $_SESSION['DELIVERY_USER']=$row['delivery_boy_name'];
-            header('location:categories.php');
+            $_SESSION['DELIVERY_ID']=$row['db_id'];
+            header('location:index.php');
             die();
         }else{
             $msg="Please enter correct login details";
@@ -26,7 +26,7 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Delivery Boy Login Page</title>
+      <title>Delivery Boy Login</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="../admin/assets/css/normalize.css">
       <link rel="stylesheet" href="../admin/assets/css/bootstrap.min.css">
@@ -59,7 +59,7 @@
             </div>
          </div>
       </div>
-      <script src="../admin/" type="text/javascript"></script>
+      <script src="../admin/assets/js/vendor/jquery-2.1.4.min.js" type="text/javascript"></script>
       <script src="../admin/assets/js/popper.min.js" type="text/javascript"></script>
       <script src="../admin/assets/js/plugins.js" type="text/javascript"></script>
       <script src="../admin/assets/js/main.js" type="text/javascript"></script>

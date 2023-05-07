@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
                                 <label for="categories" class=" form-control-label">Sub Categories</label>
                                 <input pattern="[A-Za-z]+*" title="Please Enter Only Alphabets Between A to Z" type="text" name="sub_category" placeholder="Enter Sub Categories" class="form-control" required value="<?php echo $sub_category ?>">
                          </div>
-                        <button id="payment-button" type="submit" name="submit" class="btn btn-lg btn-info btn-block">
+                        <button id="payment-button" type="submit" name="submit" class="btn btn-lg btn-info btn-block" onclick="return alert('Record Inserted!');">
                             <span id="payment-button-amount" name="submit">Submit</span>
                         </button>
                         <div class="field_error"><?php echo $msg?></div>

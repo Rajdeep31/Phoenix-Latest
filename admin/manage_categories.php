@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
                             <label for="categories" class=" form-control-label">Category</label>
                             <input title="Please Enter Only Alphabets" type="text" name="categories" placeholder="Enter category name" class="form-control" required value="<?php echo $categories?>">
                         </div>
-                        <button id="payment-button" type="submit" name="submit" class="btn btn-lg btn-info btn-block">
+                        <button id="payment-button" type="submit" name="submit" class="btn btn-lg btn-info btn-block" onclick="return alert('Record Inserted!');">
                             <span id="payment-button-amount" name="submit">Submit</span>
                         </button>
                         <div class="field_error"><?php echo $msg?></div>

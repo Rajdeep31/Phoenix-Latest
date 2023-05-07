@@ -117,7 +117,7 @@ $totalProduct = $obj->totalProduct();
                       <?php
                       }
                       ?>
-                      <li><a href="contact.php">contact</a></li>
+                      <li><a href="contact.php">Contact</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -138,6 +138,7 @@ $totalProduct = $obj->totalProduct();
                     ?>
                   </div>
                   <div class="htc__shopping__cart">
+                    
                     <a class="cart_menu" href="cart.php"><i class="icon-handbag icons"></i></a> <!--class="cart__menu(for popup)" -->
                     <a href="cart.php"><span class="htc__qua"><?php echo $totalProduct ?></span></a>
                   </div>

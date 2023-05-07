@@ -7,16 +7,36 @@
         $password=get_safe_value($con,$_POST['password']);
         $sql="select * from delivery_boy where email='$email' and password='$password'";
         $res=mysqli_query($con,$sql);
-        $count=mysqli_num_rows($res);
-        if($count>0){
+
+        $check_user=mysqli_num_rows($res);
+        if($check_user>0){
+            $row=mysqli_fetch_assoc($res);
             $_SESSION['DELIVERY_LOGIN']='yes';
-            $_SESSION['DELIVERY_EMAIL']=$email;
+            $_SESSION['DELIVERY_EMAIL']=$row['email'];
             $_SESSION['DELIVERY_ID']=$row['db_id'];
-            header('location:index.php');
-            die();
+            echo '<script>alert("Successfully Logged in.");
+            window.location.href="index.php";
+            </script>';
+
         }else{
-            $msg="Please enter correct login details";
+            echo '<script>alert("Please Enter Valid Credentials.");
+            window.location.href="login.php";
+            </script>';
         }
+
+
+
+
+      //   $count=mysqli_num_rows($res);
+      //   if($count>0){
+      //       $_SESSION['DELIVERY_LOGIN']='yes';
+      //       $_SESSION['DELIVERY_EMAIL']=$email;
+      //       $_SESSION['DELIVERY_ID']=$row['db_id'];
+      //       header('location:index.php');
+      //       die();
+      //   }else{
+      //       $msg="Please enter correct login details";
+      //   }
     }
 ?>  
 

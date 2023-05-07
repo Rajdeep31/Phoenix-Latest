@@ -50,6 +50,9 @@
                   <li class="menu-item-has-children dropdown">
                      <a href="delivery_boy.php" >Delivery Boy</a>
                   </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="supplier.php" >Supplier</a>
+                  </li>
                </ul>
             </div>
          </nav>

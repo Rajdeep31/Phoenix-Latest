@@ -12,18 +12,16 @@
         $status=0;
         
         }
-        mysqli_query($con,"update delivery_boy set status='$status' where db_id='$id'");
+        mysqli_query($con,"update suppliers set status='$status' where supplier_id='$id'");
     }
+    
     if ($type == 'delete') {
         $id = get_safe_value($con, $_GET['id']);
-        $delete = "delete from delivery_boy where db_id='$id'";
+        $delete = "delete from suppliers where supplier_id='$id'";
         mysqli_query($con, $delete);
     }
     }
-
-
-    
-    $sql="select * from delivery_boy order by db_id";
+    $sql="select * from suppliers order by supplier_id";
     $res=mysqli_query($con,$sql);
 ?>
 <div class="content pb-0">
@@ -32,8 +30,8 @@
                 <dic class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="box-title">Delivery Boy</h4>
-                            <h4 class="box-link"><a href="manage_delivery_boy.php">Add Delivery Boy</a></h4>
+                            <h4 class="box-title">Suppliers</h4>
+                            <h4 class="box-link"><a href="manage_supplier.php">Add Supplier</a></h4>
                         </div>
                         <div class="card-body--">
                             <div class="table-stats order-table ov-h">
@@ -42,9 +40,9 @@
                                         <tr>
                                             <th class="serial">Sr.No</th>
                                             <th>ID</th>
-                                            <th>First Name</th>
+                                            <th>Company Name</th>
                                             <th>Email</th>
-                                            <th>Added on</th>
+                                            <th>Contact</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -54,26 +52,25 @@
                                             while($row=mysqli_fetch_assoc($res)){?>
                                             <tr>
                                                 <td class="serial"><?php echo $i++?></td>
-                                                <td><?php echo $row['db_id']?></td>
-                                                <td><?php echo $row['delivery_boy_name']?></td>
+                                                <td><?php echo $row['supplier_id']?></td>
+                                                <td><?php echo $row['company_name']?></td>
                                                 <td><?php echo $row['email']?></td>
-                                                <td><?php echo $row['added_on']?></td>
+                                                <td><?php echo $row['contact_no']?></td>
                                                 <td>
-                                                    <a href="manage_delivery_boy.php?id=<?php echo $row['db_id']?>"><label class="badge badge-edit">Edit</label></a>
+                                                    <a href="manage_supplier.php?id=<?php echo $row['supplier_id']?>"><label class="badge badge-edit">Edit</label></a>
                                                     <?php
                                                         // echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['customer_id']."'>Delete</a></span>";
                                                         if ($row['status'] == 1) {
                                                     ?>
-                                                    <a href="?id=<?php echo $row['db_id']?>&type=deactive"><label class="badge badge-complete">Active</label></a>
+                                                    <a href="?id=<?php echo $row['supplier_id']?>&type=deactive"><label class="badge badge-complete">Active</label></a>
                                                     <?php
                                                         }else{
                                                             ?>
-                                                            <a href="?id=<?php echo $row['db_id']?>&type=active"><label class="badge badge-pending">Deactive</label></a>
+                                                            <a href="?id=<?php echo $row['supplier_id']?>&type=active"><label class="badge badge-pending">Deactive</label></a>
                                                             <?php 
                                                             }
                                                             ?>
-                                                            <a href="?id=<?php echo $row['db_id']?>&type=delete" onclick="return confirm('Are You Sure!');"><label class="badge badge-delete">Delete</label></a>
-                                                        
+                                                        <a href="?id=<?php echo $row['supplier_id']?>&type=delete" onclick="return confirm('Are You Sure!');"><label class="badge badge-delete">Delete</label></a>
 
 
                                                             <!-- // echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=" . $row['db_id'] . "'>Active</a> 

@@ -74,13 +74,13 @@ $res = mysqli_query($con, $sql);
                                             </td>
                                             <td>
                                                 <?php
-                                                if ($row['status'] == 1) {
-                                                    echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=" . $row['product_id'] . "'>Active</a> 
-                                                    </span>&nbsp";
-                                                } else {
-                                                    echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=" . $row['product_id'] . "'>Deactive</a>
-                                                    </span>&nbsp";
-                                                }
+                                                // if ($row['status'] == 1) {
+                                                //     echo "<span class='badge badge-complete'><a href='?type=status&operation=deactive&id=" . $row['product_id'] . "'>Active</a> 
+                                                //     </span>&nbsp";
+                                                // } else {
+                                                //     echo "<span class='badge badge-pending'><a href='?type=status&operation=active&id=" . $row['product_id'] . "'>Deactive</a>
+                                                //     </span>&nbsp";
+                                                // }
                                                 echo "<span class='badge badge-edit'><a href='manage_product.php?&id=" . $row['product_id'] . "'>Edit</a></span>&nbsp;";
                                                 // echo "<span class='badge badge-delete'><a href='?type=delete&id=" . $row['product_id'] . "'>Delete</a></span>";
 

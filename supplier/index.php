@@ -71,6 +71,7 @@
             <div class="login-content">
                <div class="login-form mt-150">
                   <form method="post">
+                     <h3 align="center" class="login-head">Supplier Login</h3>
                      <div class="form-group">
                         <label>Email address</label>
                         <input type="email" name="email" class="form-control" placeholder="Email" required>

@@ -78,8 +78,8 @@ if (isset($_POST['submit'])) {
         } else {
             $img = rand(1111111111, 9999999999) . '_' . $_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'], '../media/product/' . $img);
-            mysqli_query($con, "INSERT INTO product(category_id,supplier_id,name,mrp,price,quantity,img,short_desc,description,status,best_seller,sub_category_id) 
-            VALUES('$category_id','$supplier_id','$name','$mrp','$price','$quantity','$img','$short_desc','$description','1','$best_seller','$sub_category_id')");
+            mysqli_query($con, "INSERT INTO product(category_id,supplier_id,name,mrp,price,quantity,img,short_desc,description,status,best_seller,sub_category_id,added_by) 
+            VALUES('$category_id','$supplier_id','$name','$mrp','$price','$quantity','$img','$short_desc','$description','1','$best_seller','$sub_category_id','$supplier_id')");
         }
         header('location:product.php');
         die();

@@ -62,7 +62,7 @@ if(isset($_GET['complete_order_id'])){
                                             </td>
                                             <td class="product-name"><?php echo $row['payment_type']?></td>
                                             <td class="product-name"><?php echo $row['payment_status']?></td>
-                                            <td class="product-name"><a href="?complete_order_id=<?php echo $row['order_id']?>"class="badge badge-complete">Set Delivered</a></td>
+                                            <td class="product-name"><a href="?complete_order_id=<?php echo $row['order_id']?>"class="badge badge-complete" onclick="return alert('Order Has Been Delivered!');">Set Delivered</a></td>
                                         <!-- <td class="product-name">
                                         <form method="post">
                                         <select name="update_order_status">

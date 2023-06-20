@@ -539,7 +539,9 @@ function manage_cart(pid,type){
                 jQuery('.htc__qua').html(result);
             }
             
+            
         }
+        
     })
 }
 

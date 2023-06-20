@@ -59,11 +59,10 @@
                                                 <td><?php echo $row['email']?></td>
                                                 <td><?php echo $row['added_on']?></td>
                                                 <td>
-                                                    <a href="manage_delivery_boy.php?id=<?php echo $row['db_id']?>"><label class="badge badge-edit">Edit</label></a>
                                                     <?php
                                                         // echo "<span class='badge badge-delete'><a href='?type=delete&id=".$row['customer_id']."'>Delete</a></span>";
                                                         if ($row['status'] == 1) {
-                                                    ?>
+                                                            ?>
                                                     <a href="?id=<?php echo $row['db_id']?>&type=deactive"><label class="badge badge-complete">Active</label></a>
                                                     <?php
                                                         }else{
@@ -72,6 +71,7 @@
                                                             <?php 
                                                             }
                                                             ?>
+                                                            <a href="manage_delivery_boy.php?id=<?php echo $row['db_id']?>"><label class="badge badge-edit">Edit</label></a>
                                                             <a href="?id=<?php echo $row['db_id']?>&type=delete" onclick="return confirm('Are You Sure!');"><label class="badge badge-delete">Delete</label></a>
                                                         
 

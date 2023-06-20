@@ -27,7 +27,7 @@
 
         }else{
             echo '<script>alert("Please Enter Valid Credentials.");
-            window.location.href="login.php";
+            window.location.href="index.php";
             </script>';
         }
 

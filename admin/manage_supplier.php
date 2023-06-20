@@ -61,7 +61,7 @@ if(isset($_POST['submit'])){
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header"><strong>Delivery Boy Form</strong></div>
+                    <div class="card-header"><strong>Supplier Form</strong></div>
                     <form method="post">
                     <div class="card-body card-block">
                         <div class="form-group">
